@@ -18,7 +18,7 @@
 			<div class="base"></div>
 			<div class="spoke-container">
 				<div class="spoke"></div>
-				<div ng-repeat="disk in post.contents" class="disk" ng-bind="disk.size" ng-style="{'width' : getDiskWidth(disk.size), 'bottom' : getDiskHeight($index) }"></div>
+				<div ng-repeat="disk in post.contents" class="disk" ng-bind="disk.size" ng-style="{'width' : getDiskWidth(disk.size), 'bottom' : getDiskHeight($index), 'right' : getDiskPosition(disk.size), 'background-color' : colors[$index] }"></div>
 			</div>
 		</div>
 		
