@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+	<script type="text/javascript" src="appModule.js"></script>
+	<script type="text/javascript" src="towerData.js"></script>
+	<script type="text/javascript" src="displayController.js"></script>
+</head>
+<body>
+	<h1> Tower of Hanoi </h1>
+	<h2> Construct Additional Pylons </h2>
+
+	<div class="display-area" ng-controller="displayController">
+		<div class="post" ng-repeat="post in posts">
+			<div class="base"></div>
+			<div class="spoke-container">
+				<div class="spoke"></div>
+				<div ng-repeat="disk in post.contents" class="disk" ng-bind="disk.size" ng-style="{'width' : getDiskWidth(disk.size), 'bottom' : getDiskHeight($index) }"></div>
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+</html>
