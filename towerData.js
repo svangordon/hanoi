@@ -3,7 +3,7 @@ angular.module('app')
 
 	var posts = [];
 
-	var diskNum = 5;
+	var diskNum = 10;
 
 	function Disk (size,position) {
 		this.size = size;
