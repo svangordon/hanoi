@@ -7,18 +7,24 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
 	<script type="text/javascript" src="appModule.js"></script>
 	<script type="text/javascript" src="towerData.js"></script>
+	<script type="text/javascript" src="solveFactory.js"></script>
+	<script type="text/javascript" src="clickFactory.js"></script>
+	<script type="text/javascript" src="clickController.js"></script>
 	<script type="text/javascript" src="displayController.js"></script>
+	<script type="text/javascript" src="solveController.js"></script>
 </head>
 <body>
 	<h1> Tower of Hanoi </h1>
 	<h2> Construct Additional Pylons </h2>
 
+	<button ng-click="click()" ng-controller="solveController">Solve</button>
+
 	<div class="display-area" ng-controller="displayController">
 		<div class="post" ng-repeat="post in posts">
 			<div class="base"></div>
-			<div class="spoke-container">
+			<div class="spoke-container" ng-controller="clickController" ng-click="setClick($index)">
 				<div class="spoke"></div>
-				<div ng-repeat="disk in post.contents" class="disk" ng-bind="disk.size" ng-style="{'width' : getDiskWidth(disk.size), 'bottom' : getDiskHeight($index), 'right' : getDiskPosition(disk.size), 'background-color' : colors[$index] }"></div>
+				<div ng-repeat="disk in post.contents" class="disk" ng-bind="disk.size" ng-style="{'width' : getDiskWidth(disk.size), 'bottom' : getDiskYPosition($index), 'right' : getDiskXPosition(disk.size), 'background-color' : colors[disk.size], 'height' : getDiskHeight() }"></div>
 			</div>
 		</div>
 		
